@@ -3,6 +3,7 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import './Shop.css';
+import { NavLink } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -49,6 +50,9 @@ const Shop = () => {
 
         setDisplayProducts(matchedProducts);
     }
+    const orderDone = () => {
+
+    };
 
     return (
         <>
@@ -70,7 +74,12 @@ const Shop = () => {
                     }
                 </div>
                 <div className="cart-container">
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart}>
+                        <NavLink to="/orderReview">
+                            <button className="btn-regular">Review your order</button>
+                        </NavLink>
+
+                    </Cart>
                 </div>
             </div>
         </>
